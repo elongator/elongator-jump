@@ -178,21 +178,21 @@ class PlayScene extends Phaser.Scene {
 
     handleInputs() {
 
+        this.restart.on('pointerdown', () => {
+
+            this.dino.setVelocityY(0);
+            this.gameSpeed = 5;
+            this.dino.body.height = 92;
+            this.dino.body.offset.y = 0;
+            this.physics.resume();
+            this.obsticles.clear(true, true);
+            this.isGameRunning = true;
+            this.gameOverScreen.setAlpha(0);
+            this.anims.resumeAll();
+        })
+
         this.input.on('pointerdown', () => {
-
-            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; } else if (!this.isGameRunning) {
-                this.restart;
-                this.dino.setVelocityY(0);
-                this.gameSpeed = 5;
-                this.dino.body.height = 92;
-                this.dino.body.offset.y = 0;
-                this.physics.resume();
-                this.obsticles.clear(true, true);
-                this.isGameRunning = true;
-                this.gameOverScreen.setAlpha(0);
-                this.anims.resumeAll();
-            }
-
+            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
             this.jumpSound.play();
             this.dino.body.height = 92;
             this.dino.body.offset.y = 0;
