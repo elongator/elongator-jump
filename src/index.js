@@ -5,7 +5,7 @@ import PreloadScene from './PreloadScene';
 
 const config = {
     type: Phaser.AUTO,
-    width: 800,
+    width: 1000,
     height: 340,
     pixelArt: true,
     transparent: true,
