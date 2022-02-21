@@ -35,11 +35,6 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
-    compress: true,
-    port: 8080,
-  },
   plugins: [
     new webpack.DefinePlugin({
       'CANVAS_RENDERER': JSON.stringify(true),
