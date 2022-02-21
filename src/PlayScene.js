@@ -178,7 +178,7 @@ class PlayScene extends Phaser.Scene {
 
     handleInputs() {
 
-        this.input.on('pointerdown', function(pointer) {
+        this.input.on('pointerdown', () => {
 
             if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; } else if (!this.isGameRunning) {
                 this.restart;
