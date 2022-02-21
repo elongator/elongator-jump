@@ -183,6 +183,13 @@ class PlayScene extends Phaser.Scene {
             this.anims.resumeAll();
         })
 
+        this.input.on('pointerdown', () => {
+            if (!this.dino.body.onFloor() || !this.isGameRunning) { return; }
+
+            this.dino.body.height = 58;
+            this.dino.body.offset.y = 34;
+        })
+
         this.input.keyboard.on('keydown_SPACE', () => {
             if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
 
