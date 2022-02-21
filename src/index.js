@@ -3,16 +3,20 @@ import Phaser from 'phaser';
 import PlayScene from './PlayScene';
 import PreloadScene from './PreloadScene';
 
+const width = 1000
+const height = 340
+
+
 const config = {
     type: Phaser.AUTO,
-    width: 1000,
-    height: 340,
+    width,
+    height,
     pixelArt: true,
     transparent: true,
     physics: {
         default: 'arcade',
         arcade: {
-            debug: false
+            debug: true
         }
     },
     scene: [PreloadScene, PlayScene]
