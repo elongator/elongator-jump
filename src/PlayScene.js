@@ -202,7 +202,7 @@ class PlayScene extends Phaser.Scene {
         }, this);
 
         this.input.keyboard.on('keydown_SPACE', () => {
-            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
+            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0 || !this.isGameRunning) { return; }
 
             this.jumpSound.play();
             this.dino.body.height = 92;
