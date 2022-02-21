@@ -19,7 +19,7 @@ class PlayScene extends Phaser.Scene {
         this.hitSound = this.sound.add('hit', { volume: 0.2 });
         this.reachSound = this.sound.add('reach', { volume: 0.2 });
 
-        this.startTrigger = this.physics.add.sprite(0, 10).setOrigin(0, 1).setImmovable();
+        this.startTrigger = this.physics.add.sprite(0, 300).setOrigin(0, 1).setImmovable();
         this.ground = this.add.tileSprite(0, height, 88, 26, 'ground').setOrigin(0, 1)
         this.dino = this.physics.add.sprite(0, height, 'dino-idle')
             .setCollideWorldBounds(true)
@@ -202,7 +202,7 @@ class PlayScene extends Phaser.Scene {
         }, this);
 
         this.input.keyboard.on('keydown_SPACE', () => {
-            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0 || !this.isGameRunning) { return; }
+            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
 
             this.jumpSound.play();
             this.dino.body.height = 92;
