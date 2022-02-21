@@ -172,20 +172,20 @@ class PlayScene extends Phaser.Scene {
     }
 
     handleInputs() {
-        this.restart.on('pointerdown', () => {
-            this.dino.setVelocityY(0);
-            this.dino.body.height = 92;
-            this.dino.body.offset.y = 0;
-            this.physics.resume();
-            this.obsticles.clear(true, true);
-            this.isGameRunning = true;
-            this.gameOverScreen.setAlpha(0);
-            this.anims.resumeAll();
-        })
+        his.input.on('pointerdown', function(pointer) {
 
-        this.input.on('pointerdown', function(pointer) {
-
-            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
+            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; } else if (!this.isGameRunning) {
+                this.restart;
+                this.dino.setVelocityY(0);
+                this.gameSpeed = 5;
+                this.dino.body.height = 92;
+                this.dino.body.offset.y = 0;
+                this.physics.resume();
+                this.obsticles.clear(true, true);
+                this.isGameRunning = true;
+                this.gameOverScreen.setAlpha(0);
+                this.anims.resumeAll();
+            }
 
             this.jumpSound.play();
             this.dino.body.height = 92;
@@ -194,6 +194,7 @@ class PlayScene extends Phaser.Scene {
             this.dino.setTexture('dino', 0);
 
         }, this);
+
 
         this.input.keyboard.on('keydown_SPACE', () => {
             if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
