@@ -8,7 +8,7 @@ class PlayScene extends Phaser.Scene {
 
     create() {
         const { height, width } = this.game.config;
-        this.gameSpeed = 3;
+        this.gameSpeed = 7;
         this.isGameRunning = false;
         this.respawnTime = 0;
         this.score = 0;
