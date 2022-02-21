@@ -6,9 +6,11 @@ class PlayScene extends Phaser.Scene {
         super('PlayScene');
     }
 
+
+
     create() {
         const { height, width } = this.game.config;
-        this.gameSpeed = 5;
+        this.gameSpeed = 3;
         this.isGameRunning = false;
         this.respawnTime = 0;
         this.score = 0;
@@ -34,11 +36,14 @@ class PlayScene extends Phaser.Scene {
             .setOrigin(1, 0)
             .setAlpha(0);
 
+
         this.environment = this.add.group();
         this.environment.addMultiple([
             this.add.image(width / 2, 170, 'cloud'),
             this.add.image(width - 80, 80, 'cloud'),
             this.add.image((width / 1.3), 100, 'cloud')
+
+
         ]);
         this.environment.setAlpha(0);
 
@@ -172,7 +177,8 @@ class PlayScene extends Phaser.Scene {
     }
 
     handleInputs() {
-        his.input.on('pointerdown', function(pointer) {
+
+        this.input.on('pointerdown', function(pointer) {
 
             if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; } else if (!this.isGameRunning) {
                 this.restart;
@@ -194,7 +200,6 @@ class PlayScene extends Phaser.Scene {
             this.dino.setTexture('dino', 0);
 
         }, this);
-
 
         this.input.keyboard.on('keydown_SPACE', () => {
             if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
