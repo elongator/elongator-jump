@@ -21,7 +21,7 @@ const config = {
 
         min: {
             width: 700,
-            height: 400,
+            height: 300,
         },
 
         max: {
