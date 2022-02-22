@@ -17,16 +17,16 @@ const config = {
         parent: CANVAS,
 
         mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
 
         min: {
-            width: 400,
-            height: 200,
+            width: 600,
+            height: 340,
         },
 
         max: {
-            width: 1600,
-            height: 1200
+            width: 1200,
+            height: 340
         },
 
         zoom: 1,
@@ -38,7 +38,7 @@ const config = {
         }
     },
     scene: [PreloadScene, PlayScene],
-    autoRound: false
+    // autoRound: false
 };
 
 new Phaser.Game(config);
