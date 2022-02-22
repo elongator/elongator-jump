@@ -20,24 +20,42 @@ function resize() {
     }
 }
 
-
 const config = {
+    parent: CANVAS,
+    width: 1000,
+    height: 340,
     type: Phaser.AUTO,
     pixelArt: true,
     transparent: true,
-    width: 1000,
-    height: 340,
+    scale: {
+        parent: CANVAS,
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+
+        min: {
+            widht: 500,
+            height: 340
+        },
+
+        max: {
+            width: 1000,
+            height: 340
+        },
+
+        zoom: 1,
+    },
     physics: {
         default: 'arcade',
         arcade: {
             debug: true
         }
     },
+    autoRound: false,
     scene: [PreloadScene, PlayScene]
 };
 
 new Phaser.Game(config);
 
-resize();
+// resize();
 
-window.addEventListener("resize", resize, false);
+// window.addEventListener("resize", resize, false);
